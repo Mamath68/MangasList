@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{livre.nom}}
+{% endblock %}
+
+{% block body %}
+	<h1>
+		{{livre.nom}}
+	</h1>
+	<hr>
+	<div class="text-center align-items-center">
+		<div class="conteneur">
+			<div class="col">
+				<img src="{{asset('img/' ~ livre.img)}}" alt="{{livre.nom}}">
+			</div>
+			<div class="col">
+				<ul class="card-data-info">
+					{% if livre.auteurOriginal %}
+						<li>
+							<span class="text-info">Auteur Original</span>
+							<span>
+								<p>
+									{{ livre.auteurOriginal }}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.scenariste %}
+						<li>
+							<span class="text-info">Scénariste</span>
+							<span>
+								<p>
+									{{livre.scenariste}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.dessinateur %}
+						<li>
+							<span class="text-info">Déssinateur</span>
+							<span>
+								<p>
+									{{livre.dessinateur}}
+								</p>
+							</li>
+						</li>
+					{% endif %}
+					{% if livre.Traducteur %}
+						<li>
+							<span class="text-info">Traducteur</span>
+							<span>
+								<p>
+									{{livre.Traducteur}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.editeur %}
+						<li>
+							<span class="text-info">Editeur</span>
+							<span>
+								<p>
+									{{livre.editeur}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.types.0.libelle is defined %}
+						<li>
+							<span class="text-info">Catégorie</span>
+							<span>
+								<p>
+									{{livre.types.0.libelle}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.auteur %}
+						<li>
+							<span class="text-info">Auteur</span>
+							<span>
+								<p>
+									{{livre.auteur}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+				</ul>
+				<div class="text-center effect">
+					{% if livre.description %}
+						<h4>Histoire</h4>
+						<p class="mt-3">
+							{{livre.description}}
+						</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<a class="btn btn-primary" href="{{ path('app_livre_index') }}">Retour
+			</a>
+			<a class="btn btn-warning" href="{{ path('app_livre_edit', {'id': livre.id}) }}">Editer</a>
+			{{ include('livre/_delete_form.html.twig') }}
+		</div>
+	</div>
+
+{% endblock %}

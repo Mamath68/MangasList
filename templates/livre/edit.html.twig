@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition de
+	{{livre.nom}}
+{% endblock %}
+
+
+{% block body %}
+	{{ include('livre/_form.html.twig', {'button_label': 'Update'}) }}
+{% endblock %}
