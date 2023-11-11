@@ -21,7 +21,7 @@ class Type
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $img = null;
 
-    #[ORM\ManyToMany(targetEntity: Livre::class, mappedBy: 'types')]
+    #[ORM\OneToMany(mappedBy: 'types', targetEntity: Livre::class)]
     private Collection $livres;
 
     public function __construct()
@@ -70,7 +70,7 @@ class Type
     {
         if (!$this->livres->contains($livre)) {
             $this->livres->add($livre);
-            $livre->addType($this);
+            $livre->setTypes($this);
         }
 
         return $this;
@@ -79,7 +79,10 @@ class Type
     public function removeLivre(Livre $livre): static
     {
         if ($this->livres->removeElement($livre)) {
-            $livre->removeType($this);
+            // set the owning side to null (unless already changed)
+            if ($livre->getTypes() === $this) {
+                $livre->setTypes(null);
+            }
         }
 
         return $this;

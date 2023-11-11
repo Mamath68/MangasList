@@ -43,13 +43,26 @@ class Livre
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $auteur = null;
 
-    #[ORM\ManyToMany(targetEntity: Type::class, inversedBy: 'livres')]
-    private Collection $types;
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $total = null;
 
-    public function __construct()
-    {
-        $this->types = new ArrayCollection();
-    }
+    #[ORM\Column(length: 20)]
+    private ?string $possedee = null;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $status = null;
+
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $volumes = null;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $totalVF = null;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $statusVO = null;
+
+    #[ORM\ManyToOne(inversedBy: 'livres')]
+    private ?Type $types = null;
 
     public function getId(): ?int
     {
@@ -164,26 +177,86 @@ class Livre
         return $this;
     }
 
-    /**
-     * @return Collection<int, Type>
-     */
-    public function getTypes(): Collection
+    public function getTotal(): ?string
     {
-        return $this->types;
+        return $this->total;
     }
 
-    public function addType(Type $type): static
+    public function setTotal(?string $total): static
     {
-        if (!$this->types->contains($type)) {
-            $this->types->add($type);
-        }
+        $this->total = $total;
 
         return $this;
     }
 
-    public function removeType(Type $type): static
+    public function getPossedee(): ?string
     {
-        $this->types->removeElement($type);
+        return $this->possedee;
+    }
+
+    public function setPossedee(string $possedee): static
+    {
+        $this->possedee = $possedee;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getVolumes(): ?string
+    {
+        return $this->volumes;
+    }
+
+    public function setVolumes(?string $volumes): static
+    {
+        $this->volumes = $volumes;
+
+        return $this;
+    }
+
+    public function getTotalVF(): ?string
+    {
+        return $this->totalVF;
+    }
+
+    public function setTotalVF(?string $totalVF): static
+    {
+        $this->totalVF = $totalVF;
+
+        return $this;
+    }
+
+    public function getStatusVO(): ?string
+    {
+        return $this->statusVO;
+    }
+
+    public function setStatusVO(?string $statusVO): static
+    {
+        $this->statusVO = $statusVO;
+
+        return $this;
+    }
+
+    public function getTypes(): ?Type
+    {
+        return $this->types;
+    }
+
+    public function setTypes(?Type $types): static
+    {
+        $this->types = $types;
 
         return $this;
     }

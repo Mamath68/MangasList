@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Les
+	{{type.libelle}}
+
+{% endblock %}
+
+{% block body %}
+	<h1>Les
+		{{type.libelle}}</h1>
+
+	<div class="container text-center">
+		<div class="row">
+			{% for livre in type.livres %}
+				<div class="col-12 col-md-2">
+					{% if livre.img is defined %}
+						<img src="{{asset('img/' ~ livre.img)}}" alt="{{livre.nom}}">
+					{% else %}
+						pas de livre dans cette catégorie
+					{% endif %}
+					{% if livre.nom is defined %}
+						<h5>
+							<a href="{{ path('app_livre_show', {'nom': livre.nom, 'libelle' : type.libelle}) }}">{{livre.nom}}</a>
+						</h5>
+					{% else %}
+						pas de livre dans cette catégorie
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<a class="btn btn-primary" href="{{ path('app_type_index') }}">Retour</a>
+	{# {% if is_granted('ROLE_ADMIN') %}
+		<a class="btn btn-primary" href="{{ path('app_livre_new') }}">Ajouter un livre à votre collection</a>
+	{% endif %} #}
+
+{% endblock %}

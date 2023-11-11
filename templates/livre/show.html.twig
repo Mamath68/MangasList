@@ -66,13 +66,73 @@
 							</span>
 						</li>
 					{% endif %}
-					{% if livre.types.0.libelle is defined %}
+					{% if livre.total %}
+						<li>
+							<span class="text-info">Total VO</span>
+							<span>
+								<p>
+									{{livre.total}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.totalVF %}
+						<li>
+							<span class="text-info">Total en français</span>
+							<span>
+								<p>
+									{{livre.totalVF}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.possedee %}
+						<li>
+							<span class="text-info">Nombre possédé</span>
+							<span>
+								<p>
+									{{livre.possedee}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.volumes %}
+						<li>
+							<span class="text-info">Volume possédé</span>
+							<span>
+								<p>
+									{{livre.volumes}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.statusVO %}
+						<li>
+							<span class="text-info">Status VO</span>
+							<span>
+								<p>
+									{{livre.statusVO}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.status %}
+						<li>
+							<span class="text-info">Status en france</span>
+							<span>
+								<p>
+									{{livre.status}}
+								</p>
+							</span>
+						</li>
+					{% endif %}
+					{% if livre.types.libelle is defined %}
 						<li>
 							<span class="text-info">Catégorie</span>
 							<span>
-								<p>
-									{{livre.types.0.libelle}}
-								</p>
+								<a href="{{ path('app_type_show', {'id': livre.types.id}) }}">
+									{{livre.types.libelle}}
+								</a>
 							</span>
 						</li>
 					{% endif %}
@@ -98,10 +158,12 @@
 			</div>
 		</div>
 		<div class="actions">
-			<a class="btn btn-primary" href="{{ path('app_livre_index') }}">Retour
+			<a class="btn btn-primary" href="{{ path('app_type_show', {'id': livre.types.id}) }}">Retour
 			</a>
-			<a class="btn btn-warning" href="{{ path('app_livre_edit', {'id': livre.id}) }}">Editer</a>
-			{{ include('livre/_delete_form.html.twig') }}
+			{% if is_granted('ROLE_ADMIN') %}
+				<a class="btn btn-warning" href="{{ path('app_livre_edit', {'nom': livre.nom, 'libelle' : type.libelle}) }}">Editer</a>
+			{% endif %}
+
 		</div>
 	</div>
 

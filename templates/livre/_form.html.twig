@@ -30,7 +30,17 @@
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
 												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.types) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
 													{{ form_row(form.auteurOriginal) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.auteur) }}
 												</div>
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
@@ -55,7 +65,32 @@
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
 												<div class="form-outline flex-fill mb-0">
-													{{ form_row(form.auteur) }}
+													{{ form_row(form.total) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.totalVF) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.possedee) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.volumes) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.statusVO) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(form.status) }}
 												</div>
 											</div>
 
@@ -77,7 +112,6 @@
 				</div>
 			</div>
 			<a class="btn btn-secondary" href="{{ path('app_livre_index') }}">Retour</a>
-
 		</section>
 	{% else %}
 		<section style="background-color: #eee;">
@@ -111,7 +145,17 @@
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
 												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.types) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
 													{{ form_row(edit.auteurOriginal) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.auteur) }}
 												</div>
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
@@ -136,9 +180,35 @@
 											</div>
 											<div class="d-flex flex-row align-items-center mb-4">
 												<div class="form-outline flex-fill mb-0">
-													{{ form_row(edit.auteur) }}
+													{{ form_row(edit.total) }}
 												</div>
 											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.totalVF) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.possedee) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.volumes) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.statusVO) }}
+												</div>
+											</div>
+											<div class="d-flex flex-row align-items-center mb-4">
+												<div class="form-outline flex-fill mb-0">
+													{{ form_row(edit.status) }}
+												</div>
+											</div>
+
 
 											<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
 												<button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ button_label|default('Enregistrer') }}</button>
