@@ -57,6 +57,7 @@ class LivreType extends AbstractType
             ])
             ->add('totalVF', TextType::class, [
                 'label' => 'Total en France',
+                'required' => false,
                 'attr' => ['class' => 'form-control']
             ])
             ->add('possedee', TextType::class, [
@@ -69,6 +70,7 @@ class LivreType extends AbstractType
             ])
             ->add('status', TextType::class, [
                 'label' => 'Status VF',
+                'required' => false,
                 'attr' => ['class' => 'form-control']
             ])
             ->add('volumes', TextType::class, [
@@ -84,8 +86,7 @@ class LivreType extends AbstractType
                 'class' => Type::class,
                 'choice_label' => 'libelle',
                 'attr' => ['class' => 'form-control']
-            ])
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

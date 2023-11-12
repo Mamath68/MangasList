@@ -9,16 +9,25 @@
 	<div class="container text-center">
 		<div class="row">
 			{% for type in types %}
-				<div class="col-12 col-md-2">
-					{% if type.img is defined %}
-						<img src="{{asset('img/' ~ type.img)}}" alt="{{type.libelle}}">
-					{% endif %}
-					<h5>
-						<a href="{{ path('app_type_show', {'id': type.id}) }}">{{type.libelle}}</a>
-					</h5>
+				<div class="col-md col-12">
+					<figure>
+						<blockquote class="blockquote">
+							<picture>
+								{% if type.img is defined %}
+									<img src="{{asset('img/' ~ type.img)}}" class="img-fluid img-thumbnail rounded" alt="{{type.libelle}}">
+								{% endif %}
+							</picture>
+						</blockquote>
+						<figcaption class="blockquote-footer">
+							Ma liste de
+							<cite title="Source Title">
+								<a class="link-primary" href="{{ path('app_type_show', {'libelle': type.libelle}) }}">{{type.libelle}}</a>
+							</cite>
+						</figcaption>
+					</figure>
 				</div>
 			{% else %}
-				<div class="col-12 col-md-2">
+				<div class="col-md col-12">
 					<h5>
 						Pas De Type enregistré
 					</h5>
@@ -28,7 +37,6 @@
 	</div>
 	{% if is_granted('ROLE_ADMIN') %}
 		<a class="btn btn-primary" href="{{ path('app_livre_new') }}">Ajouter un nouveau livre à ma collection</a>
-		{# <a class="btn btn-warning" href="{{ path('app_type_edit', {'id': type.id}) }}">Editer</a> #}
 	{% endif %}
 
 {% endblock %}

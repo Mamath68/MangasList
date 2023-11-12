@@ -4,9 +4,24 @@
 {% endblock %}
 
 {% block body %}
-	
-    <div class="container">
-		<h1>Hello World</h1>
+
+
+	<div class="container">
+		<h1>Bienvenue à tous</h1>
+		<h5>Ceci est ma nouvelle version du site abritant ma collection de livre.</h5>
+		<div class="container text-center">
+			<figure>
+				<blockquote class="blockquote">
+						<source srcset="{{ asset('/img/banniere.jpg') }}" type="image/svg+xml">
+						<img src="{{ asset('/img/banniere.jpg') }}" class="img-fluid img-thumbnail rounded" alt="Une Bannière">
+				</blockquote>
+				<figcaption class="blockquote-footer">
+					Ma liste de
+					<cite title="Source Title">Manga</cite>
+				</figcaption>
+			</figure>
+		</div>
+
 	</div>
 
 {% endblock %}

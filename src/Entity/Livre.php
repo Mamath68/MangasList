@@ -43,7 +43,7 @@ class Livre
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $auteur = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20)]
     private ?string $total = null;
 
     #[ORM\Column(length: 20)]
@@ -58,7 +58,7 @@ class Livre
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $totalVF = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20)]
     private ?string $statusVO = null;
 
     #[ORM\ManyToOne(inversedBy: 'livres')]

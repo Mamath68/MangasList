@@ -54,12 +54,23 @@ header {
     display: none;
 }
 
+picture img{
+    height: 20rem !important;
+    width: auto !important;
+}
+
 .nav-link {
     color: white !important;
 }
 
 .dropdown-menu li {
     padding: 0.5rem;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: black !important;
+    text-decoration: none;
+    background: none !important;;
 }
 
 div img {
@@ -144,7 +155,6 @@ ul.card-data-info li {
     background: #7d3e12;
     padding: 5px;
     display: flex;
-    border-radius: 5px;
     color: #fff;
     flex-direction: column;
     align-items: center;
@@ -159,12 +169,12 @@ ul.card-data-info li {
     padding: 2rem 5rem 0px 5rem;
 }
 
-.actions a {
-    margin: 5px;
-}
-
 .actions {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.actions a {
+    margin: 5px;
 }
